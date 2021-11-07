@@ -123,7 +123,7 @@ class SessionsList:
             return distinct_id_to_email
 
     def date_filter(self) -> Q:
-        # if _date_from is not explicitely set we only want to get the last day worth of data
+        # if _date_from is not explicitly set we only want to get the last day worth of data
         # otherwise the query is very slow
         if self.filter._date_from and self.filter.date_to:
             return Q(timestamp__gte=self.filter.date_from, timestamp__lte=self.filter.date_to + relativedelta(days=1),)
